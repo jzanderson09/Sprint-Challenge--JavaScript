@@ -30,13 +30,36 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+--> The .forEach() method runs a function on each element in an existing array while .map() runs a function on an existing array but is used to create a new array with those results.  .forEach() does not create a new array but rather modifies an existing one.
+
 2. What is the difference between a function and a method?
+
+--> A function is a collection of executable code closed by {}.  Example would be function speak() {console.log('Hello world!');} and run as speak().  A method is a function stored as a method.  An example of this would be either a method stored on an object created or a pre-defined method on the prototype of something like array or string prototype object.
 
 3. What is closure?
 
+--> Closure is a variable or function scope and its lexical environment.  In a function shown as:
+function speak() {
+    console.log('Hello world!');
+}
+
+the code within the {} is the scope and its lexical environment is the environment in which it was created.  With closure, the code can seek outside for context, for something like variable for example.  However in block level scope, it doesn't go the other way.  Meaning a const variable defined within those curly brackets would only be accessible within that scope and not outside.
+
 4. Describe the four rules of the 'this' keyword.
 
+--> Four rules/principles of the 'this' keyword:
+1)Implicit Binding -- This is implied or suggested binding of the this keyword.  Example would be in a constructor function with this.name = name, this would be referring to the object being created or soon to be created from the constructor function.
+2)Explicit Binding -- Explicit binding is when the this keyword is specifically binded to an object.  This can be acheived by using .bind(), .call() or .apply().
+3)New Binding -- New binding is achieved when creating a new object.  For example, if I had a class of Dog with this.name = name, I would create a variable ex. const jake = new Dog({
+    name = 'Jake'
+});
+
+with a new object under the class Dog, it would be using the new binding since the new keyword is used to create that class object.
+4)Global Binding -- This is the binding to the console window.  If this is not defined in context within Javascript code, this refers to the console window.
+
 5. Why do we need super() in an extended class?
+
+--> super() in an extended class is what enables another class constructor to seek context to an extended class when using the constructor to build that new object.  For example, if this.name = name was under the class Animal and class Dog extends Animal, the super() allows the Animal class to send the parameter/object to Animal to build that object, in this case, assigning the this.name to name in that Dog object.  Without super(), it would not have that context and would not be able to build that object, resulting in a compiling error.
 
 ## Project Set up
 
