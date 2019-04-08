@@ -179,16 +179,10 @@ const zooPop = [];
 zooAnimals.map(function(obj) {
   zooPop.push(obj.population);
 });
-let pop = 0;
-const populationTotal = zooPop.reduce() {
+//This gives me a single array of values to reduce into one total population count.
 
-};
-// console.log(populationTotal);
+const reducer = (accu, currValue) => accu + currValue;
+let populationTotal = zooPop.reduce(reducer);
+console.log("population total is: " + populationTotal);
 
-
-/* 
-
-Stretch: If you haven't already, convert your array method callbacks into arrow functions.
-
-*/
 
